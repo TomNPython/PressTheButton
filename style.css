@@ -1,0 +1,25 @@
+body {
+background-color: #ede1e1;
+  padding-top: 30px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+}
+
+.ready-message {
+  font-size: 20px
+}
+
+.time {
+  font-size: 50px
+}

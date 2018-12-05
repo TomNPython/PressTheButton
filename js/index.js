@@ -5,12 +5,15 @@ class Countdown extends React.Component {
       title: 'Press The Button!',
       subtitle: 'Before the timer runs out...',
       display: 20,
-      isOn: true,
+      isOn: false,
       warning: "Are you ready?"
     };
   }
 
   startSession = () => {
+    this.setState({
+      isOn: true,
+    })
     setInterval(this.sessionTimer, 1000);
   };
 
@@ -58,10 +61,11 @@ class Countdown extends React.Component {
       subtitle: 'Before the timer runs out...',
       display: 20,
       warning: "Are you ready?",
-      isOn: !this.state.isOn
+      isOn: false
     });
     document.getElementsByTagName("BODY")[0].style.backgroundColor = "#ede1e1";
     document.getElementsByTagName("BODY")[0].style.color = "black";
+    clearInterval(this.sessionTimer)
   };
 
   render() {
@@ -79,3 +83,4 @@ class Countdown extends React.Component {
 }
 
 ReactDOM.render(<Countdown />, document.getElementById("app"));
+

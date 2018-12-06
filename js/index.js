@@ -9,6 +9,12 @@ class Countdown extends React.Component {
       warning: "Are you ready?"
     };
   }
+  
+  buzzer(clock) {
+    if (clock === 0) {
+      this.countdownSound.play()
+    }
+}
 
   startSession = () => {
     this.setState({
@@ -51,6 +57,7 @@ class Countdown extends React.Component {
         document.getElementsByTagName("BODY")[0].style.backgroundColor =
           "#e20000";
         document.getElementsByTagName("BODY")[0].style.color = "white";
+        this.buzzer(this.state.display)
       }
     }
   };
@@ -60,7 +67,7 @@ class Countdown extends React.Component {
       title: 'Press The Button!',
       subtitle: 'Before the timer runs out...',
       display: 20,
-      warning: "Are you ready?",
+      warning: "Are you ready? \(It's faster now!)",
       isOn: false
     });
     document.getElementsByTagName("BODY")[0].style.backgroundColor = "#ede1e1";
@@ -77,6 +84,7 @@ class Countdown extends React.Component {
         <button onClick={this.startSession}>Start</button>
         <button onClick={this.resetSession}>Reset</button>
         <div class='ready-message'>{this.state.warning}</div>
+<audio id='alarm' src='https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3' ref={(audio) => {this.countdownSound = audio }} />
       </div>
     );
   }

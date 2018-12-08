@@ -20,7 +20,7 @@ class Countdown extends React.Component {
     this.setState({
       isOn: true,
     })
-    setInterval(this.sessionTimer, 1000);
+    this.timer = setInterval(this.sessionTimer, 1000);
   };
 
   sessionTimer = () => {
@@ -67,12 +67,12 @@ class Countdown extends React.Component {
       title: 'Press The Button!',
       subtitle: 'Before the timer runs out...',
       display: 20,
-      warning: "Are you ready? \(It's faster now!)",
+      warning: "Are you ready?",
       isOn: false
     });
     document.getElementsByTagName("BODY")[0].style.backgroundColor = "#ede1e1";
     document.getElementsByTagName("BODY")[0].style.color = "black";
-    clearInterval(this.sessionTimer)
+    clearInterval(this.timer)
   };
 
   render() {
